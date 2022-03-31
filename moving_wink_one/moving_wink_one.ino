@@ -23,6 +23,9 @@ Visit http://www.arduino.cc to learn about the Arduino.
                            // machine language Wink can understand.
 
 
+
+
+
 // Below is the "setup" function. It runs one time as soon as Wink turns on. You can add stuff
 // to this function if you want, but hardwareBegin() should always be the first code in the list.
 
@@ -31,6 +34,8 @@ void setup(){
   playStartChirp();       //Play startup chirp and blink eyes
   
   RxIRRestart(4);         //wait for 4 byte IR remote command
+
+  //IR_Play 20
 }
 
 byte button;
@@ -41,16 +46,18 @@ void loop(){
     button = GetIRButton();   // read which button was pressed
     Serial.println(button);
 
-    switch(button){
+ 
 
-       case 20:                //PLAY Key
-       motors(150,150);
-       RxIRRestart(4);
-       delay(100);
-       motors(0,0);
-       break;
-        
-    }
+//    switch(button){
+//
+//       case 20:                //PLAY Key
+//       motors(150,150);
+//       RxIRRestart(4);
+//       delay(100);
+//       motors(0,0);
+//       break;
+//        
+//    }
     
   } // end of if(IsIRDone())
 
